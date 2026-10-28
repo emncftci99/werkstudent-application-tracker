@@ -1,62 +1,183 @@
+/* ---------- Genel sayfa ---------- */
 body {
-    font-family:Arial, sans-serif;
-    background-color: #f4f6f8;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+    background-color: #f1f3f7;
+    color: #1f2937;
     margin: 0;
+    padding: 0 16px; /* küçük ekranlarda içerik kenara yapışmasın */
 }
 
 .container {
-    width: 700px;
-    margin:40px auto;
+    max-width: 700px; /* geniş ekranda en fazla 700px, dar ekranda küçülür */
+    margin: 40px auto;
     background-color: white;
     padding: 30px;
-    border-radius:10px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06); /* hafif gölge: kart gibi dursun */
 }
 
 h1 {
     text-align: center;
+    margin-top: 0;
+    color: #111827;
 }
 
+h2 {
+    font-size: 18px;
+    color: #374151;
+    margin-top: 30px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #e5e7eb; /* bölümleri ayıran ince çizgi */
+}
+
+/* ---------- Form ---------- */
 form {
     display: flex;
     flex-direction: column;
-    gap:10px;
+    gap: 10px;
 }
+
+label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #4b5563;
+}
+
 input,
 select,
-textarea{
-    padding: 10px;
+textarea {
+    padding: 10px 12px;
     font-size: 16px;
+    font-family: inherit; /* textarea varsayılan olarak farklı font kullanır */
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    background-color: white;
+}
+
+/* Kullanıcı bir alana tıkladığında mavi çerçeve */
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
 }
 
 textarea {
     min-height: 80px;
+    resize: vertical; /* sadece dikey boyutlandırma */
 }
 
+/* Ana buton (Add Application / Save Changes) */
 button {
     padding: 12px;
     font-size: 16px;
+    font-weight: 600;
     cursor: pointer;
     margin-top: 10px;
+    border: none;
+    border-radius: 8px;
+    background-color: #2563eb;
+    color: white;
+    transition: background-color 0.2s;
 }
 
-#applications-list{
+button:hover {
+    background-color: #1d4ed8;
+}
+
+/* ---------- Başvuru listesi ---------- */
+#applications-list {
     margin-top: 20px;
 }
 
-.application-card{
-   border: 1px solid #ddd;
-   padding: 15px;
-   margin-bottom: 15px;
-   border-radius: 8px;
-   background-color: #fafafa;
+.application-card {
+    border: 1px solid #e5e7eb;
+    padding: 16px 20px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    background-color: #fafbfc;
+    transition: box-shadow 0.2s;
 }
 
-.application-card h3{
+.application-card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.application-card h3 {
+    margin: 0 0 4px 0;
+}
+
+.application-card p {
+    margin: 6px 0;
+    color: #4b5563;
+}
+
+/* ---------- Durum rozeti (badge) ---------- */
+.status-badge {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 999px; /* hap şekli */
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: capitalize; /* "applied" -> "Applied" */
+}
+
+/* Her durum için ayrı renk. Sınıf adı enum değeriyle birebir aynı olmalı */
+.status-applied {
+    background-color: #dbeafe;
+    color: #1e40af;
+}
+
+.status-interviewed {
+    background-color: #fef3c7;
+    color: #92400e;
+}
+
+.status-rejected {
+    background-color: #fee2e2;
+    color: #991b1b;
+}
+
+.status-offer {
+    background-color: #dcfce7;
+    color: #166534;
+}
+
+/* ---------- Kart butonları (Edit / Delete) ---------- */
+.card-actions {
+    display: flex;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.card-actions button {
     margin-top: 0;
+    padding: 6px 14px;
+    font-size: 14px;
+    font-weight: 500;
 }
 
-.delete-button{
-    padding: 8px 12px;
-    cursor: pointer;
+.edit-button {
+    background-color: #e5e7eb;
+    color: #1f2937;
 }
 
+.edit-button:hover {
+    background-color: #d1d5db;
+}
+
+.delete-button {
+    background-color: #fee2e2;
+    color: #b91c1c;
+}
+
+.delete-button:hover {
+    background-color: #fecaca;
+}
+
+.empty-message {
+    text-align: center;
+    color: #9ca3af;
+    padding: 20px 0;
+}

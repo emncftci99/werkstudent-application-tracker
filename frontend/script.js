@@ -48,24 +48,21 @@ async function loadApplications(){
    list.innerHTML = "";
    for(const application of applications){
        list.innerHTML +=`
-           <div class ="application-card">
+           <div class="application-card">
                <h3>${application.company}</h3>
                <p>${application.position}</p>
-               <p>Status: ${application.status}</p>
+               <span class="status-badge status-${application.status}">${application.status}</span>
                <p>${application.notes || ""}</p>
-
-               <button onclick="editApplication(${application.id})">
-                   Edit
-               </button>
-
-               <button
-                   class="delete-button"
-                   onclick="deleteApplication(${application.id})"
-               >
-                   Delete
-               </button>
+               <div class="card-actions">
+                   <button class="edit-button" onclick="editApplication(${application.id})">Edit</button>
+                   <button class="delete-button" onclick="deleteApplication(${application.id})">Delete</button>
+               </div>
            </div>
        `;
+       if (applications.length === 0) {
+           list.innerHTML = '<p class="empty-message">No applications yet. Add your first one above.</p>';
+           return;
+       }
    }
 }
 
