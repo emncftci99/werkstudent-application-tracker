@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Werkstudent Application Tracker</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+      <h1>Werkstudent Application Tracker</h1>
+      <h2>Add</h2>
+      <form id="application-form">
+        <label>Company</label>
+        <input type="text" id="company" placeholder="e.g. E.ON" required>
+        <label>Position</label>
+        <input type="text" id="position" placeholder="e.g. Werkstudent IT" required>
+        <label>Status</label>
+        <select id="status">
+          <option value="applied" >Applied</option>
+          <option value="interviewed" >Interviewed</option>
+          <option value="rejected" >Rejected</option>
+          <option value="offer" >Offer</option>
+        </select>
+        <textarea id="notes" placeholder="Optional notes"></textarea>
+        <button type="submit">Add Application</button>
+      </form>
+      <h2>Applications</h2>
+      <div id="applications-list">
+        <!--Applications will appear here-->
+      </div>
+    </div>
+    <script src="/static/script.js"></script>
+
+</body>
+</html>
