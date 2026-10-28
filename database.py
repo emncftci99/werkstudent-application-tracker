@@ -13,9 +13,14 @@ CREATE TABLE IF NOT EXISTS applications (
     company TEXT NOT NULL,
     position TEXT NOT NULL,
     status TEXT NOT NULL,
-    notes TEXT
+    notes TEXT,
+    applied_date TEXT
 )
 """)
+
+columns = [column[1] for column in cursor.execute("PRAGMA table_info(applications)")]
+if "applied_date" not in columns:
+    cursor.execute("ALTER TABLE applications ADD COLUMN applied_date TEXT")
 
 connection.commit()
 connection.close()

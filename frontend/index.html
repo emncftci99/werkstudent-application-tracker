@@ -2,37 +2,67 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Werkstudent Application Tracker</title>
-    <link rel="stylesheet" href="/static/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
     <div class="container">
-      <h1>Werkstudent Application Tracker</h1>
-      <h2>Add Application</h2>
-      <form id="application-form">
-        <label>Company</label>
-        <input type="text" id="company" placeholder="e.g. E.ON" required>
-        <label>Position</label>
-        <input type="text" id="position" placeholder="e.g. Werkstudent IT" required>
-        <label>Status</label>
-        <select id="status">
-          <option value="applied" >Applied</option>
-          <option value="interviewed" >Interviewed</option>
-          <option value="rejected" >Rejected</option>
-          <option value="offer" >Offer</option>
-        </select>
-        <textarea id="notes" placeholder="Optional notes"></textarea>
-        <button type="submit">Add Application</button>
-      </form>
-      <h2>Applications</h2>
-      <div id="applications-list">
-        <!--Applications will appear here-->
-      </div>
-    </div>
-    <script src="/static/script.js"></script>
+        <header class="app-header">
+            <div class="logo">
+                <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="3" y="7" width="18" height="13" rx="2"></rect>
+                    <path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                    <path d="M3 13h18"></path>
+                </svg>
+            </div>
+            <h1>Werkstudent Application Tracker</h1>
+            <p class="subtitle">Keep track of every application in one place</p>
+        </header>
 
+        <h2>Add</h2>
+        <form id="application-form">
+            <label for="company">Company</label>
+            <input type="text" id="company" placeholder="e.g. E.ON" required>
+
+            <label for="position">Position</label>
+            <input type="text" id="position" placeholder="e.g. Werkstudent IT" required>
+
+            <label for="status">Status</label>
+            <select id="status">
+                <option value="applied">Applied</option>
+                <option value="interviewed">Interviewed</option>
+                <option value="rejected">Rejected</option>
+                <option value="offer">Offer</option>
+            </select>
+
+            <label for="applied-date">Applied on</label>
+            <input type="date" id="applied-date">
+
+            <label for="notes">Notes</label>
+            <textarea id="notes" placeholder="Optional notes"></textarea>
+
+            <p id="form-error" class="form-error" hidden></p>
+
+            <button type="submit">Add Application</button>
+        </form>
+
+        <div class="list-header">
+            <h2>Applications</h2>
+            <select id="status-filter" aria-label="Filter by status">
+                <option value="">All</option>
+                <option value="applied">Applied</option>
+                <option value="interviewed">Interviewed</option>
+                <option value="rejected">Rejected</option>
+                <option value="offer">Offer</option>
+            </select>
+        </div>
+        <div id="applications-list"></div>
+    </div>
+
+    <script src="/static/script.js"></script>
 </body>
 </html>
