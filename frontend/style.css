@@ -1,36 +1,70 @@
-/* ---------- Genel sayfa ---------- */
 body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
-    background-color: #f1f3f7;
+    font-family: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
     color: #1f2937;
     margin: 0;
-    padding: 0 16px; /* küçük ekranlarda içerik kenara yapışmasın */
+    padding: 0 16px;
+    min-height: 100vh;
+    background-color: #eef2ff;
+    background-image:
+        url("pattern.svg"),
+        linear-gradient(135deg, #eef2ff 0%, #e0f2fe 50%, #f5f3ff 100%);
+    background-size: 240px 240px, 100% 100%;
+    background-attachment: fixed;
 }
 
 .container {
-    max-width: 700px; /* geniş ekranda en fazla 700px, dar ekranda küçülür */
+    max-width: 700px;
     margin: 40px auto;
-    background-color: white;
     padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06); /* hafif gölge: kart gibi dursun */
+    border-radius: 16px;
+    background-color: rgba(255, 255, 255, 0.88);
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    box-shadow: 0 10px 40px rgba(37, 99, 235, 0.12);
+}
+
+.app-header {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.logo {
+    width: 56px;
+    height: 56px;
+    margin: 0 auto 12px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, #2563eb, #7c3aed);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 6px 16px rgba(37, 99, 235, 0.35);
 }
 
 h1 {
     text-align: center;
-    margin-top: 0;
+    margin: 0;
     color: #111827;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+.subtitle {
+    margin: 6px 0 0;
+    color: #6b7280;
+    font-size: 15px;
 }
 
 h2 {
     font-size: 18px;
+    font-weight: 700;
     color: #374151;
     margin-top: 30px;
     padding-bottom: 8px;
-    border-bottom: 1px solid #e5e7eb; /* bölümleri ayıran ince çizgi */
+    border-bottom: 1px solid #e5e7eb;
 }
 
-/* ---------- Form ---------- */
 form {
     display: flex;
     flex-direction: column;
@@ -48,13 +82,12 @@ select,
 textarea {
     padding: 10px 12px;
     font-size: 16px;
-    font-family: inherit; /* textarea varsayılan olarak farklı font kullanır */
+    font-family: inherit;
     border: 1px solid #d1d5db;
     border-radius: 8px;
     background-color: white;
 }
 
-/* Kullanıcı bir alana tıkladığında mavi çerçeve */
 input:focus,
 select:focus,
 textarea:focus {
@@ -65,13 +98,13 @@ textarea:focus {
 
 textarea {
     min-height: 80px;
-    resize: vertical; /* sadece dikey boyutlandırma */
+    resize: vertical;
 }
 
-/* Ana buton (Add Application / Save Changes) */
 button {
     padding: 12px;
     font-size: 16px;
+    font-family: inherit;
     font-weight: 600;
     cursor: pointer;
     margin-top: 10px;
@@ -86,7 +119,6 @@ button:hover {
     background-color: #1d4ed8;
 }
 
-/* ---------- Başvuru listesi ---------- */
 #applications-list {
     margin-top: 20px;
 }
@@ -106,6 +138,7 @@ button:hover {
 
 .application-card h3 {
     margin: 0 0 4px 0;
+    font-weight: 700;
 }
 
 .application-card p {
@@ -113,17 +146,15 @@ button:hover {
     color: #4b5563;
 }
 
-/* ---------- Durum rozeti (badge) ---------- */
 .status-badge {
     display: inline-block;
     padding: 4px 10px;
-    border-radius: 999px; /* hap şekli */
+    border-radius: 999px;
     font-size: 13px;
     font-weight: 600;
-    text-transform: capitalize; /* "applied" -> "Applied" */
+    text-transform: capitalize;
 }
 
-/* Her durum için ayrı renk. Sınıf adı enum değeriyle birebir aynı olmalı */
 .status-applied {
     background-color: #dbeafe;
     color: #1e40af;
@@ -144,7 +175,6 @@ button:hover {
     color: #166534;
 }
 
-/* ---------- Kart butonları (Edit / Delete) ---------- */
 .card-actions {
     display: flex;
     gap: 8px;
