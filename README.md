@@ -2,7 +2,7 @@
 
 A small full-stack web app for keeping track of Werkstudent (working student) job applications in one place: which companies I applied to, for which position, and where each application currently stands.
 
-![Screenshot of the app](screenshot.png)
+![Screenshot of the app](Screenshot.png)
 
 ## Features
 
